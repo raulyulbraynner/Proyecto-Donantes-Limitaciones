@@ -27,6 +27,62 @@
 </head>
 
 <body ng-controller="myController as ctrl">
+    <!-- HOME LOGIN NAVIGATOR -->
+<ons-navigator title="Navigator" var="myNavigator">
+    <ons-page>
+        <ons-toolbar>
+        <div class="center">Inicio de sesión</div>
+        <div class="right">
+            <ons-toolbar-button>Cerrar</ons-toolbar-button>
+        </div>
+    </ons-toolbar>
+
+    <div class="login-form">
+        <input type="text" ng-model="ctrl.usuario" class="text-input--underbar" placeholder="Usuario" value="">
+        <input type="password" ng-model="ctrl.password" class="text-input--underbar" placeholder="Contraseña" value="">
+        <br>
+        <br>
+        <ons-button modifier="large" class="login-button" ng-click="ctrl.iniciarSesion()">Iniciar sesión</ons-button>
+        <br>
+        <ons-button modifier="large--cta" class="login-button" ng-click="myNavigator.pushPage('registro-donante.html', { animation : 'slide' } );">Registrarse</ons-button>
+        <br>
+        <ons-button modifier="quiet" class="forgot-password" ng-click="ctrl.quienesSomos()">¿ Quienes somos ?</ons-button>
+    </div>
+    </ons-page>
+</ons-navigator>
+
+<!-- MENU ADMIN -->
+<ons-template id="menu-admin.html">
+    <ons-page>
+    <ons-toolbar>
+    <div class="left">
+        <ons-back-button>Atrás</ons-back-button>
+    </div>
+    <div class="center">
+        Administrador
+    </div>
+    <div class="right">
+        <ons-toolbar-button>Cerrar</ons-toolbar-button>
+    </div>
+    </ons-toolbar>
+
+    <div class="login-form">
+        <div class="settings-header">Opciones</div>
+        <br>
+
+        <ons-button modifier="large" class="login-button" ng-click="myNavigator.pushPage('registro-beneficiario.html', { animation : 'slide' } );">Registrar Usuario</ons-button>
+        <br>
+        <ons-button modifier="large--cta" class="login-button" ng-click="myNavigator.pushPage('donaciones-fundacion.html', { animation : 'slide' } );">Donaciones realizadas a la fundación</ons-button>
+        <br>
+        <ons-button modifier="large" class="login-button" ng-click="myNavigator.pushPage('usuarios-con-donaciones.html', { animation : 'slide' } );">Donaciones realizadas a los usuarios</ons-button>
+        <br>
+        <ons-button modifier="large--cta" class="login-button" ng-click="">Seguimiento</ons-button>
+        <br>
+        <ons-button modifier="large" class="login-button" ng-click="">Observaciones</ons-button>
+        <br>
+    </div>
+    </ons-page>
+</ons-template>
 
 </body>
 </html>
