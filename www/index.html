@@ -176,7 +176,104 @@
     </ons-page>
 </ons-template>
 
+<!-- REGISTRO BENEFICIARIO -->
+<ons-template id="registro-beneficiario.html">
+    <ons-page>
+    <ons-toolbar>
+    <div class="left">
+        <ons-back-button>Atrás</ons-back-button>
+    </div>
+    <div class="center">
+        Registrar Beneficiario
+    </div>
+    <div class="right">
+        <ons-toolbar-button>Cerrar</ons-toolbar-button>
+    </div>
+    </ons-toolbar>
 
+    <div class="login-form">
+        <input type="text" ng-model="ctrl.r_nombres" class="text-input--underbar" placeholder="Nombre" value="">
+        <input type="text" ng-model="ctrl.r_apellidos" class="text-input--underbar" placeholder="Apellidos" value="">
+        <input type="text" ng-model="ctrl.r_documento" class="text-input--underbar" placeholder="Documento" value="">
+        <input type="text" ng-model="ctrl.r_implemento" class="text-input--underbar" placeholder="Implemento" value="">
+        <input type="text" ng-model="ctrl.r_telefono" class="text-input--underbar" placeholder="Teléfono" value="">
+        <input type="text" ng-model="ctrl.r_correo" class="text-input--underbar" placeholder="Correo" value="">
+        <br>
+        <br>
+        <ons-button modifier="large" class="login-button" ng-click="ctrl.agregarBeneficiario()">Agregar</ons-button>
+    </div>
+    </ons-page>
+</ons-template>
+
+<!-- REALIZAR DONACIÓN - FUNDACION-->
+<ons-template id="realizar-donacion.html">
+    <ons-page>
+    <ons-toolbar>
+    <div class="left">
+        <ons-back-button>Atrás</ons-back-button>
+    </div>
+    <div class="center">
+        Donar a la fundación
+    </div>
+    <div class="right">
+        <ons-toolbar-button>Cerrar</ons-toolbar-button>
+    </div>
+    </ons-toolbar>
+
+    <div class="login-form">
+        <textarea class="textarea" ng-model="ctrl.d_f_implemento" rows="3" placeholder="Implemento"></textarea>
+        <br>
+        <select ng-model="ctrl.d_f_estado">
+          <option value="" disabled selected>- Seleccione estado -</option>
+          <option value="Excelente">Excelente</option>
+          <option value="Bueno">Bueno</option>
+      </select>
+      <br>
+      <input type="number" ng-model="ctrl.d_f_cantidad" class="text-input--underbar" placeholder="Cantidad" value="">
+      <br>
+      <br>
+      <ons-button modifier="large" class="login-button" ng-click="">Donar</ons-button>
+    </div>
+    </ons-page>
+</ons-template>
+
+<!-- REALIZAR DONACIÓN - USUARIO -->
+<ons-template id="realizar-donacion-usuario.html">
+    <ons-page>
+    <ons-toolbar>
+    <div class="left">
+        <ons-back-button>Atrás</ons-back-button>
+    </div>
+    <div class="center">
+        Donar a usuario
+    </div>
+    <div class="right">
+        <ons-toolbar-button>Cerrar</ons-toolbar-button>
+    </div>
+    </ons-toolbar>
+
+    <div class="login-form">
+        <select>
+          <option value="" disabled selected>- Seleccione Usuario -</option>
+          <option value="Usuario 1">Usuario 1</option>
+          <option value="Usuario 2">Usuario 2</option>
+      </select>
+      <br>
+        <textarea class="textarea" ng-model="ctrl.implemento" rows="3" placeholder="Implemento"></textarea>
+        <br>
+        <select>
+          <option value="" disabled selected>- Seleccione Estado -</option>
+          <option value="Excelente">Excelente</option>
+          <option value="Bueno">Bueno</option>
+      </select>
+      <br>
+      <input type="number" ng-model="ctrl.cantidad" class="text-input--underbar" placeholder="Cantidad" value="">
+      <br>
+      <br>
+      <ons-button modifier="large" class="login-button" ng-click="">Donar</ons-button>
+    </div>
+    </ons-page>
+</ons-template>
 
 </body>
 </html>
