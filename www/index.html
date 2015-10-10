@@ -110,5 +110,73 @@
     </ons-page>
 </ons-template>
 
+<!-- QUIENES SOMOS -->
+<ons-template id="quienes-somos.html">
+    <ons-page>
+    <ons-toolbar>
+    <div class="left">
+        <ons-back-button>Atrás</ons-back-button>
+    </div>
+    <div class="center">
+     ¿ Quienes somos ?
+    </div>
+    <div class="right">
+        <ons-toolbar-button>Cerrar</ons-toolbar-button>
+    </div>
+    </ons-toolbar>
+
+    <div class="login-form">
+        <h2>¿ Quienes somos ?</h2>
+        <p style="text-align: justify;">
+            Nosotros, la fundacion "Un abrazo por los discapacitados" somos una entidad sin animo de lucro que trabajamos por el bienestar de las personas discapacitadas de la ciudad de armenia.
+            La fundacion "Un abrazo por los discapacitados" se encarga de los procesos de donacion de herramientas fisicas, para las personas discapacitadas de escasos recursos.
+        </p>
+        <h2>¿ Como donar ?</h2>
+        <p style="text-align: justify;">
+            La persona que quiera donar una herramienta (Silla de ruedas, muletas, caminadores, cuellos ortopedicos, protesis, cargadores, etc) para una persona discapacitada tiene que registrarse en la aplicacion +Donantes -Limitaciones a traves de un Usuario y Contraseña.
+
+            En la aplicacion +Donantes -Limitaciones se tienen dos opciones para donar.
+
+                1-Las herramientas se pueden donar directamente a una persona que los necesite, la lista de personas en espera de "Donantes" que requieren de estas herramientas se pueden observar al momento de iniciar sesion.
+
+                2- Las herramientas tambien se pueden donar directamente a la fundacion "Un abrazo por los discapacitados" y ya la fundacion se encarga de donarla a una persona que ellos consideren que la necesita.
+        </p>
+    </div>
+    </ons-page>
+</ons-template>
+
+<!-- REGISTRAR DONANTE -->
+<ons-template id="registro-donante.html">
+    <ons-page>
+    <ons-toolbar>
+    <div class="left">
+        <ons-back-button>Atrás</ons-back-button>
+    </div>
+    <div class="center">
+        Registrar Donante
+    </div>
+    <div class="right">
+        <ons-toolbar-button>Cerrar</ons-toolbar-button>
+    </div>
+    </ons-toolbar>
+
+    <div class="login-form">
+        <input type="text" ng-model="ctrl.r_nombres" class="text-input--underbar" placeholder="Nombre" value="">
+        <input type="text" ng-model="ctrl.r_apellidos" class="text-input--underbar" placeholder="Apellidos" value="">
+        <input type="text" ng-model="ctrl.r_documento" class="text-input--underbar" placeholder="Documento" value="">
+        <input type="text" ng-model="ctrl.r_implemento" class="text-input--underbar" placeholder="Implemento" value="">
+        <input type="text" ng-model="ctrl.r_telefono" class="text-input--underbar" placeholder="Teléfono" value="">
+        <input type="text" ng-model="ctrl.r_correo" class="text-input--underbar" placeholder="Correo" value="">
+        <br>
+        <label>F. Nacimiento: </label><input type="date" ng-model="ctrl.r_fecha_nacimiento"  placeholder="Fecha Nacimiento" value="">
+        <br>
+        <br>
+        <ons-button modifier="large" class="login-button" ng-click="ctrl.agregarDonante()">Agregar</ons-button>
+    </div>
+    </ons-page>
+</ons-template>
+
+
+
 </body>
 </html>
