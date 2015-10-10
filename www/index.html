@@ -51,7 +51,7 @@
     </ons-page>
 </ons-navigator>
 
-<!-- MENU ADMIN -->
+<!-- VENTANA ADMIN -->
 <ons-template id="menu-admin.html">
     <ons-page>
     <ons-toolbar>
@@ -80,6 +80,32 @@
         <br>
         <ons-button modifier="large" class="login-button" ng-click="">Observaciones</ons-button>
         <br>
+    </div>
+    </ons-page>
+</ons-template>
+
+<!-- VENTANA DONANTE -->
+<ons-template id="menu-donante.html">
+    <ons-page>
+    <ons-toolbar>
+    <div class="left">
+        <ons-back-button>Atrás</ons-back-button>
+    </div>
+    <div class="center">
+        Donante
+    </div>
+    <div class="right">
+        <ons-toolbar-button>Cerrar</ons-toolbar-button>
+    </div>
+    </ons-toolbar>
+
+    <div class="login-form">
+        <div class="settings-header">Opciones</div>
+        <br>
+
+        <ons-button modifier="large" class="login-button" ng-click="myNavigator.pushPage('realizar-donacion.html', { animation : 'slide' } );">Realizar una donación a la fundación</ons-button>
+        <br>
+        <ons-button modifier="large--cta" class="login-button" ng-click="myNavigator.pushPage('realizar-donacion-usuario.html', { animation : 'slide' } );">Realizar una donación a un usuario</ons-button>
     </div>
     </ons-page>
 </ons-template>
