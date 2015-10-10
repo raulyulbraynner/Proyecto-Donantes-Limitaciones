@@ -2,8 +2,6 @@ angular.module('myApp', ['onsen'])
 .controller('myController', function($scope) {
 	var ctrl = this;
 
-	// Variables donación a fundación.
-	// d_f = donación fundación.
 	ctrl.d_f_implemento = '';
 	ctrl.d_f_estado = '';
 	ctrl.d_f_cantidad = '';
