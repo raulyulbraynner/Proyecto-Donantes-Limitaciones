@@ -109,6 +109,7 @@ C:\ProyectosPhonegap\donaciones\platforms\android\assets\www\lib\onsen\stylus\co
 C:\ProyectosPhonegap\donaciones\platforms\android\assets\www\lib\onsen\stylus\components\toolbar-button.styl \
 C:\ProyectosPhonegap\donaciones\platforms\android\assets\www\lib\onsen\stylus\components\util.styl \
 C:\ProyectosPhonegap\donaciones\platforms\android\assets\www\res\icon \
+C:\ProyectosPhonegap\donaciones\platforms\android\assets\www\res\img \
 C:\ProyectosPhonegap\donaciones\platforms\android\assets\www\res\screen \
 C:\ProyectosPhonegap\donaciones\platforms\android\assets\www\res\icon\android \
 C:\ProyectosPhonegap\donaciones\platforms\android\assets\www\res\icon\bada \
@@ -136,6 +137,7 @@ C:\ProyectosPhonegap\donaciones\platforms\android\assets\www\res\icon\webos\icon
 C:\ProyectosPhonegap\donaciones\platforms\android\assets\www\res\icon\windows-phone\icon-173-tile.png \
 C:\ProyectosPhonegap\donaciones\platforms\android\assets\www\res\icon\windows-phone\icon-48.png \
 C:\ProyectosPhonegap\donaciones\platforms\android\assets\www\res\icon\windows-phone\icon-62-tile.png \
+C:\ProyectosPhonegap\donaciones\platforms\android\assets\www\res\img\logo.jpg \
 C:\ProyectosPhonegap\donaciones\platforms\android\assets\www\res\screen\android \
 C:\ProyectosPhonegap\donaciones\platforms\android\assets\www\res\screen\bada \
 C:\ProyectosPhonegap\donaciones\platforms\android\assets\www\res\screen\bada-wac \
