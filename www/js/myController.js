@@ -2,7 +2,7 @@ angular.module('myApp', ['onsen'])
 .controller('myController', function($scope, $http) {
 	var ctrl = this;
 
-	ctrl.hostApp = 'http://raul-pc:82/conexionBd/consultas.php?callback=JSON_CALLBACK';
+	ctrl.hostApp = 'http://localhost:82/conexionBd/consultas.php?callback=JSON_CALLBACK';
 
 	// Variables internas de sesión.
 	ctrl.G_idUsuario = '';
