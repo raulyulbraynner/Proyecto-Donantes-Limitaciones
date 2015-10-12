@@ -133,7 +133,7 @@ angular.module('myApp', ['onsen'])
 				ctrl.password = '';
 
 				$scope.myNavigator.popPage();
-				ctrl.darMensaje('Se ha registrado correctamente el beneficiario.');
+				ctrl.darMensaje('Se ha registrado correctamente el usuario beneficiario.');
 			}
 			else{
 				ctrl.darMensaje('Ha ocurrido un error. Por favor revise los datos.');

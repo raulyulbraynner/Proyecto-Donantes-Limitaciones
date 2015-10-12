@@ -96,7 +96,7 @@
 </ons-toolbar>
 
 <div class="login-form">
-    <div class="settings-header">Opciones</div>
+    <div class="settings-header">Opciones Administrador</div>
     <br>
 
     <ons-button modifier="large" class="login-button" ng-click="myNavigator.pushPage('registro-beneficiario.html', { animation : 'slide' } );">Registrar beneficiario</ons-button>
@@ -131,7 +131,7 @@
 </ons-toolbar>
 
 <div class="login-form">
-    <div class="settings-header">Opciones</div>
+    <div class="settings-header">Opciones de Usuario</div>
     <br>
 
     <ons-button modifier="large" class="login-button" ng-click="myNavigator.pushPage('realizar-donacion.html', { animation : 'slide' } );">Donar a la fundación</ons-button>
@@ -267,13 +267,13 @@
     <input type="text" ng-model="ctrl.r_d_nombres" class="text-input--underbar" placeholder="Nombre" value="">
     <input type="text" ng-model="ctrl.r_d_apellidos" class="text-input--underbar" placeholder="Apellidos" value="">
     <input type="text" ng-model="ctrl.r_d_documento" class="text-input--underbar" placeholder="Documento" value="">
-    <input type="text" ng-model="ctrl.r_d_implemento" class="text-input--underbar" placeholder="Implemento" value="">
+    <input type="text" ng-model="ctrl.r_d_implemento" class="text-input--underbar" placeholder="Direccion" value="">
     <input type="text" ng-model="ctrl.r_d_telefono" class="text-input--underbar" placeholder="Teléfono" value="">
     <input type="text" ng-model="ctrl.r_d_correo" class="text-input--underbar" placeholder="Correo" value="">
     <br>
     <label>F. Nacimiento: </label><input type="date" ng-model="ctrl.r_d_fecha_nacimiento"  placeholder="yyyy-MM-dd" value="" required>
     <br>
-    <ons-button modifier="large" class="login-button" ng-click="ctrl.agregarDonante()">Registrarme !</ons-button>
+    <ons-button modifier="large" class="login-button" ng-click="ctrl.agregarDonante()">Registrar</ons-button>
 </div>
 </ons-page>
 </ons-template>
