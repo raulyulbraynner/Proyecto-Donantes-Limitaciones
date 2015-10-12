@@ -2,32 +2,28 @@ angular.module('myApp', ['onsen'])
 .controller('myController', function($scope, $http) {
 	var ctrl = this;
 
-	ctrl.hostApp = 'http://localhost:82/conexionBd/consultas.php?callback=JSON_CALLBACK';
+	ctrl.hostApp = 'http://raul-pc:82/conexionBd/consultas.php?callback=JSON_CALLBACK';
 
 	// Variables internas de sesión.
 	ctrl.G_idUsuario = '';
 	ctrl.G_nombreUsuario = '';
 	ctrl.G_tipoUsuario = '';
-
 	// Listas
 	ctrl.donacionesRevisar = [];
 	ctrl.usuariosBeneficiarios = [];
 	ctrl.donacionesMiFundacion = [];
 	ctrl.donacionesMiUsuario = [];
-
 	// Variables donación a fundación.
 	// d_f = donación fundación.
 	ctrl.d_f_implemento = '';
 	ctrl.d_f_estado = '';
 	ctrl.d_f_cantidad = '';
-
 	// Variables donación a usuario.
 	// d_u = donación usuario.
 	ctrl.d_u_idUsuario = '';
 	ctrl.d_u_implemento = '';
 	ctrl.d_u_estado = '';
 	ctrl.d_u_cantidad = '';
-
 	// Variables registrar donante.
 	ctrl.r_d_usuario = '';
 	ctrl.r_d_password = '';
@@ -38,7 +34,6 @@ angular.module('myApp', ['onsen'])
 	ctrl.r_d_telefono = '';
 	ctrl.r_d_correo = '';
 	ctrl.r_d_fecha_nacimiento = '';
-
 	// Ver donación
 	ctrl.verDonacionNombre = '';
 	ctrl.verDonacionImplemento = '';

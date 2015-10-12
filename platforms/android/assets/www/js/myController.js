@@ -2,32 +2,28 @@ angular.module('myApp', ['onsen'])
 .controller('myController', function($scope, $http) {
 	var ctrl = this;
 
-	ctrl.hostApp = 'http://192.168.1.56:82/conexionBd/consultas.php?callback=JSON_CALLBACK';
+	ctrl.hostApp = 'http://raul-pc:82/conexionBd/consultas.php?callback=JSON_CALLBACK';
 
 	// Variables internas de sesión.
 	ctrl.G_idUsuario = '';
 	ctrl.G_nombreUsuario = '';
 	ctrl.G_tipoUsuario = '';
-
 	// Listas
 	ctrl.donacionesRevisar = [];
 	ctrl.usuariosBeneficiarios = [];
 	ctrl.donacionesMiFundacion = [];
 	ctrl.donacionesMiUsuario = [];
-
 	// Variables donación a fundación.
 	// d_f = donación fundación.
 	ctrl.d_f_implemento = '';
 	ctrl.d_f_estado = '';
 	ctrl.d_f_cantidad = '';
-
 	// Variables donación a usuario.
 	// d_u = donación usuario.
 	ctrl.d_u_idUsuario = '';
 	ctrl.d_u_implemento = '';
 	ctrl.d_u_estado = '';
 	ctrl.d_u_cantidad = '';
-
 	// Variables registrar donante.
 	ctrl.r_d_usuario = '';
 	ctrl.r_d_password = '';
@@ -38,7 +34,6 @@ angular.module('myApp', ['onsen'])
 	ctrl.r_d_telefono = '';
 	ctrl.r_d_correo = '';
 	ctrl.r_d_fecha_nacimiento = '';
-
 	// Ver donación
 	ctrl.verDonacionNombre = '';
 	ctrl.verDonacionImplemento = '';
@@ -133,7 +128,7 @@ angular.module('myApp', ['onsen'])
 				ctrl.password = '';
 
 				$scope.myNavigator.popPage();
-				ctrl.darMensaje('Se ha registrado correctamente el beneficiario.');
+				ctrl.darMensaje('Se ha registrado correctamente el usuario beneficiario.');
 			}
 			else{
 				ctrl.darMensaje('Ha ocurrido un error. Por favor revise los datos.');
@@ -156,6 +151,26 @@ angular.module('myApp', ['onsen'])
 			  		ctrl.verDonacionImplemento = ctrl.donacionesRevisar[id].implemento;
 			  		ctrl.verDonacionCantidad = ctrl.donacionesRevisar[id].cantidad;
 			  		ctrl.verDonacionID = ctrl.donacionesRevisar[id].id;
+			  		$scope.myNavigator.pushPage('verDonacion.html', { animation : 'slide' } );
+			  	}
+			  	else{
+			  		ctrl.darMensaje("Operación cancelada.");
+			  	}
+			  }
+			});
+	};
+
+	ctrl.verDonacionUsuario = function(id){
+		ons.notification.confirm({
+			message: 'Desea ver la donación seleccionada ?',
+			  // or messageHTML: '<div>Message in HTML</div>',
+			  title: 'SISTEMA DE INFORMACIÓN',
+			  buttonLabels: ['Si', 'No'],
+			  animation: 'default', // or 'none'
+			  primaryButtonIndex: 1,
+			  cancelable: true,
+			  callback: function(index) {
+			  	if(index === 0){
 			  		$scope.myNavigator.pushPage('verDonacion.html', { animation : 'slide' } );
 			  	}
 			  	else{
@@ -190,26 +205,6 @@ angular.module('myApp', ['onsen'])
 			  				ctrl.darMensaje('Ha ocurrido un error. Por favor revise los datos.');
 			  			}
 			  		});
-			  	}
-			  }
-			});
-	};
-
-	ctrl.verDonacionUsuario = function(id){
-		ons.notification.confirm({
-			message: 'Desea ver la donación seleccionada ?',
-			  // or messageHTML: '<div>Message in HTML</div>',
-			  title: 'SISTEMA DE INFORMACIÓN',
-			  buttonLabels: ['Si', 'No'],
-			  animation: 'default', // or 'none'
-			  primaryButtonIndex: 1,
-			  cancelable: true,
-			  callback: function(index) {
-			  	if(index === 0){
-			  		$scope.myNavigator.pushPage('verDonacion.html', { animation : 'slide' } );
-			  	}
-			  	else{
-			  		ctrl.darMensaje("Operación cancelada.");
 			  	}
 			  }
 			});
