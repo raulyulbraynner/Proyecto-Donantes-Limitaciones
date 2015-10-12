@@ -2,7 +2,7 @@ angular.module('myApp', ['onsen'])
 .controller('myController', function($scope, $http) {
 	var ctrl = this;
 
-	ctrl.hostApp = 'http://raul-pc:82/conexionBd/consultas.php?callback=JSON_CALLBACK';
+	ctrl.hostApp = 'http://localhost:82/conexionBd/consultas.php?callback=JSON_CALLBACK';
 
 	// Variables internas de sesión.
 	ctrl.G_idUsuario = '';
@@ -165,6 +165,26 @@ angular.module('myApp', ['onsen'])
 			});
 	};
 
+	ctrl.verDonacionUsuario = function(id){
+		ons.notification.confirm({
+			message: 'Desea ver la donación seleccionada ?',
+			  // or messageHTML: '<div>Message in HTML</div>',
+			  title: 'SISTEMA DE INFORMACIÓN',
+			  buttonLabels: ['Si', 'No'],
+			  animation: 'default', // or 'none'
+			  primaryButtonIndex: 1,
+			  cancelable: true,
+			  callback: function(index) {
+			  	if(index === 0){
+			  		$scope.myNavigator.pushPage('verDonacion.html', { animation : 'slide' } );
+			  	}
+			  	else{
+			  		ctrl.darMensaje("Operación cancelada.");
+			  	}
+			  }
+			});
+	};
+
 	ctrl.aceptarDonacion  = function(){
 		ons.notification.confirm({
 			message: 'Desea aceptar la donación ?',
@@ -190,26 +210,6 @@ angular.module('myApp', ['onsen'])
 			  				ctrl.darMensaje('Ha ocurrido un error. Por favor revise los datos.');
 			  			}
 			  		});
-			  	}
-			  }
-			});
-	};
-
-	ctrl.verDonacionUsuario = function(id){
-		ons.notification.confirm({
-			message: 'Desea ver la donación seleccionada ?',
-			  // or messageHTML: '<div>Message in HTML</div>',
-			  title: 'SISTEMA DE INFORMACIÓN',
-			  buttonLabels: ['Si', 'No'],
-			  animation: 'default', // or 'none'
-			  primaryButtonIndex: 1,
-			  cancelable: true,
-			  callback: function(index) {
-			  	if(index === 0){
-			  		$scope.myNavigator.pushPage('verDonacion.html', { animation : 'slide' } );
-			  	}
-			  	else{
-			  		ctrl.darMensaje("Operación cancelada.");
 			  	}
 			  }
 			});
