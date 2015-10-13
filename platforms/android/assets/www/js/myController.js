@@ -139,10 +139,9 @@ angular.module('myApp', ['onsen'])
 	ctrl.verDonacionFundacion = function(id){
 		ons.notification.confirm({
 			message: 'Desea ver la donación seleccionada ?',
-			  // or messageHTML: '<div>Message in HTML</div>',
 			  title: 'SISTEMA DE INFORMACIÓN',
 			  buttonLabels: ['Si', 'No'],
-			  animation: 'default', // or 'none'
+			  animation: 'default', 
 			  primaryButtonIndex: 1,
 			  cancelable: true,
 			  callback: function(index) {
@@ -163,10 +162,9 @@ angular.module('myApp', ['onsen'])
 	ctrl.verDonacionUsuario = function(id){
 		ons.notification.confirm({
 			message: 'Desea ver la donación seleccionada ?',
-			  // or messageHTML: '<div>Message in HTML</div>',
 			  title: 'SISTEMA DE INFORMACIÓN',
 			  buttonLabels: ['Si', 'No'],
-			  animation: 'default', // or 'none'
+			  animation: 'default',
 			  primaryButtonIndex: 1,
 			  cancelable: true,
 			  callback: function(index) {
@@ -321,10 +319,9 @@ angular.module('myApp', ['onsen'])
 	ctrl.verDonacionesDelUsuario = function(id){
 		ons.notification.confirm({
 			message: 'Desea ver las donaciones del usuario seleccionado ?',
-			  // or messageHTML: '<div>Message in HTML</div>',
 			  title: 'SISTEMA DE INFORMACIÓN',
 			  buttonLabels: ['Si', 'No'],
-			  animation: 'default', // or 'none'
+			  animation: 'default',
 			  primaryButtonIndex: 1,
 			  cancelable: true,
 			  callback: function(index) {
@@ -341,13 +338,10 @@ angular.module('myApp', ['onsen'])
 	ctrl.darMensaje = function(mensaje) {
 		ons.notification.alert({
 			message: mensaje,
-			  // or messageHTML: '<div>Message in HTML</div>',
 			  title: 'SISTEMA DE INFORMACIÓN',
 			  buttonLabel: 'OK',
-			  animation: 'default', // or 'none'
-			  // modifier: 'optional-modifier'
+			  animation: 'default', 
 			  callback: function() {
-			    // Alert button is closed!
 			}
 		});
 	};
