@@ -2,8 +2,8 @@ angular.module('myApp', ['onsen'])
     .controller('myController', function($scope, $http) {
         var ctrl = this;
 
-        ctrl.hostApp = 'http://paisa:82/RaulDonaciones/consultas.php?callback=JSON_CALLBACK';
-        ctrl.hostImg = 'http://paisa:82/';
+        ctrl.hostApp = 'http://raul-pc:82/RaulDonaciones/consultas.php?callback=JSON_CALLBACK';
+        ctrl.hostImg = 'http://raul-pc:82/';
 
         // Variables internas de sesión.
         ctrl.G_idUsuario = '';

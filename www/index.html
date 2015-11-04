@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!-- CSP support mode (required for Windows Universal apps): https://docs.angularjs.org/api/ng/directive/ngCsp -->
 <html lang="en" ng-app="myApp" ng-csp>
+
 <head>
     <meta charset="utf-8" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -10,6 +11,7 @@
     <script src="scripts/platformOverrides.js"></script>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/onsen/js/onsenui.js"></script>
+    <script src="js/scripts.js"></script>
     <script src="js/myController.js"></script>
 
     <!-- CSS dependencies -->
@@ -33,454 +35,599 @@
 
     <!-- HOME LOGIN NAVIGATOR -->
     <ons-navigator title="Navigator" var="myNavigator">
-    <ons-page>
-    <ons-toolbar>
-    <div class="center">Inicio de sesión</div>
-    <div class="right">
-        <ons-toolbar-button ng-click="ctrl.cerrarSesion()">Cerrar</ons-toolbar-button>
-    </div>
-</ons-toolbar>
-<div class="login-form">
-    <img src="res/img/logo.jpg" alt="" width="200px">
-</div>
-<div class="login-form">
-    <input type="text" ng-model="ctrl.usuario" class="text-input--underbar" placeholder="Usuario" value="">
-    <input type="password" ng-model="ctrl.password" class="text-input--underbar" placeholder="Contraseña" value="">
-    <br>
-    <br>
-    <ons-button modifier="large" class="login-button" ng-click="ctrl.iniciarSesion()">Iniciar sesión</ons-button>
-    <br>
-    <ons-button modifier="large--cta" class="login-button" ng-click="myNavigator.pushPage('registro-donante.html', { animation : 'slide' } );">Registrarse</ons-button>
-    <br>
-    <ons-button modifier="quiet" class="forgot-password" ng-click="ctrl.quienesSomos()">¿ Quienes somos ?</ons-button>
-</div>
-</ons-page>
-</ons-navigator>
+        <ons-page>
+            <ons-toolbar>
+                <div class="center">Inicio de sesión</div>
+                <div class="right">
+                    <ons-toolbar-button ng-click="ctrl.cerrarSesion()">Cerrar</ons-toolbar-button>
+                </div>
+            </ons-toolbar>
+            <div class="login-form">
+                <img src="res/img/logo.jpg" alt="" width="200px">
+            </div>
+            <div class="login-form">
+                <input type="text" ng-model="ctrl.usuario" class="text-input--underbar" placeholder="Usuario" value="">
+                <input type="password" ng-model="ctrl.password" class="text-input--underbar" placeholder="Contraseña" value="">
+                <br>
+                <br>
+                <ons-button modifier="large" class="login-button" ng-click="ctrl.iniciarSesion()">Iniciar sesión</ons-button>
+                <br>
+                <ons-button modifier="large--cta" class="login-button" ng-click="myNavigator.pushPage('registro-donante.html', { animation : 'slide' } );">Registrarse</ons-button>
+                <br>
+                <ons-button modifier="quiet" class="forgot-password" ng-click="ctrl.quienesSomos()">¿ Quienes somos ?</ons-button>
+            </div>
+        </ons-page>
+    </ons-navigator>
 
-<ons-template id="home.html">
-<ons-page>
-<ons-toolbar>
-<div class="center">Inicio de sesión</div>
-<div class="right">
-    <ons-toolbar-button ng-click="ctrl.cerrarSesion()">Cerrar</ons-toolbar-button>
-</div>
-</ons-toolbar>
+    <ons-template id="home.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="center">Inicio de sesión</div>
+                <div class="right">
+                    <ons-toolbar-button ng-click="ctrl.cerrarSesion()">Cerrar</ons-toolbar-button>
+                </div>
+            </ons-toolbar>
 
-<div class="login-form">
-    <input type="text" ng-model="ctrl.usuario" class="text-input--underbar" placeholder="Usuario" value="">
-    <input type="password" ng-model="ctrl.password" class="text-input--underbar" placeholder="Contraseña" value="">
-    <br>
-    <br>
-    <ons-button modifier="large" class="login-button" ng-click="ctrl.iniciarSesion()">Iniciar sesión</ons-button>
-    <br>
-    <ons-button modifier="large--cta" class="login-button" ng-click="myNavigator.pushPage('registro-donante.html', { animation : 'slide' } );">Registrarse</ons-button>
-    <br>
-    <ons-button modifier="quiet" class="forgot-password" ng-click="ctrl.quienesSomos()">¿ Quienes somos ?</ons-button>
-</div>
-</ons-page>
-</ons-template>
+            <div class="login-form">
+                <input type="text" ng-model="ctrl.usuario" class="text-input--underbar" placeholder="Usuario" value="">
+                <input type="password" ng-model="ctrl.password" class="text-input--underbar" placeholder="Contraseña" value="">
+                <br>
+                <br>
+                <ons-button modifier="large" class="login-button" ng-click="ctrl.iniciarSesion()">Iniciar sesión</ons-button>
+                <br>
+                <ons-button modifier="large--cta" class="login-button" ng-click="myNavigator.pushPage('registro-donante.html', { animation : 'slide' } );">Registrarse</ons-button>
+                <br>
+                <ons-button modifier="quiet" class="forgot-password" ng-click="ctrl.quienesSomos()">¿ Quienes somos ?</ons-button>
+            </div>
+        </ons-page>
+    </ons-template>
 
-<!-- MENU ADMIN -->
-<ons-template id="menu-admin.html">
-<ons-page>
-<ons-toolbar>
-<div class="left">
-    <ons-back-button>Atrás</ons-back-button>
-</div>
-<div class="center">
-    Administrador
-</div>
-<div class="right">
-    <ons-toolbar-button ng-click="ctrl.cerrarSesion()">Cerrar</ons-toolbar-button>
-</div>
-</ons-toolbar>
+    <!-- MENU ADMIN -->
+    <ons-template id="menu-admin.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Atrás</ons-back-button>
+                </div>
+                <div class="center">
+                    Administrador
+                </div>
+                <div class="right">
+                    <ons-toolbar-button ng-click="ctrl.cerrarSesion()">Cerrar</ons-toolbar-button>
+                </div>
+            </ons-toolbar>
 
-<div class="login-form">
-    <div class="settings-header">Opciones</div>
-    <br>
+            <div class="login-form">
+                <div class="settings-header">Opciones</div>
+                <br>
 
-    <ons-button modifier="large" class="login-button" ng-click="myNavigator.pushPage('registro-beneficiario.html', { animation : 'slide' } );">Registrar beneficiario</ons-button>
-    <br>
-    <ons-button modifier="large--cta" class="login-button" ng-click="ctrl.cargarDonacionesRevisar()">Donaciones por revisar</ons-button>
-    <br>
-    <ons-button modifier="large" class="login-button" ng-click="ctrl.verDonacionesFundacion()">Ver donaciones a la fundación</ons-button>
-    <br>
-    <ons-button modifier="large--cta" class="login-button" ng-click="ctrl.cargarUsuariosBeneficiarios(true)">Ver donaciones a usuarios</ons-button>
-    <br>
-    <ons-button modifier="large" class="login-button" ng-click="">Ver seguimiento</ons-button>
-    <br>
-    <ons-button modifier="large--cta" class="login-button" ng-click="">Ver observaciones</ons-button>
-    <br>
-</div>
-</ons-page>
-</ons-template>
+                <ons-button modifier="large" class="login-button" ng-click="myNavigator.pushPage('registro-beneficiario.html', { animation : 'slide' } );">Registrar beneficiario</ons-button>
+                <br>
+                <ons-button modifier="large--cta" class="login-button" ng-click="ctrl.cargarDonacionesRevisar()">Donaciones por revisar</ons-button>
+                <br>
+                <ons-button modifier="large" class="login-button" ng-click="ctrl.verDonacionesFundacion()">Ver donaciones a la fundación</ons-button>
+                <br>
+                <ons-button modifier="large--cta" class="login-button" ng-click="ctrl.cargarUsuariosBeneficiarios(true)">Ver donaciones a usuarios</ons-button>
+                <br>
+                <ons-button modifier="large" class="login-button" ng-click="ctrl.verDonacionesSeguimientos()">Ver seguimiento</ons-button>
+                <br>
+                <ons-button modifier="large--cta" class="login-button" ng-click="ctrl.verDonacionesRechazadas()">Ver donaciones rechazadas</ons-button>
+                <br>
+            </div>
+        </ons-page>
+    </ons-template>
 
-<!-- MENU DONANTE -->
-<ons-template id="menu-donante.html">
-<ons-page>
-<ons-toolbar>
-<div class="left">
-    <ons-back-button>Atrás</ons-back-button>
-</div>
-<div class="center">
-    Donante
-</div>
-<div class="right">
-    <ons-toolbar-button ng-click="ctrl.cerrarSesion()">Cerrar</ons-toolbar-button>
-</div>
-</ons-toolbar>
+    <!-- MENU DONANTE -->
+    <ons-template id="menu-donante.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Atrás</ons-back-button>
+                </div>
+                <div class="center">
+                    Donante
+                </div>
+                <div class="right">
+                    <ons-toolbar-button ng-click="ctrl.cerrarSesion()">Cerrar</ons-toolbar-button>
+                </div>
+            </ons-toolbar>
 
-<div class="login-form">
-    <div class="settings-header">Opciones</div>
-    <br>
+            <div class="login-form">
+                <div class="settings-header">Opciones</div>
+                <br>
 
-    <ons-button modifier="large" class="login-button" ng-click="myNavigator.pushPage('realizar-donacion.html', { animation : 'slide' } );">Donar a la fundación</ons-button>
-    <br>
-    <ons-button modifier="large--cta" class="login-button" ng-click="ctrl.cargarUsuariosBeneficiarios(false)">Donar a un usuario</ons-button>
-</div>
-</ons-page>
-</ons-template>
+                <ons-button modifier="large" class="login-button" ng-click="myNavigator.pushPage('realizar-donacion.html', { animation : 'slide' } );">Donar a la fundación</ons-button>
+                <br>
+                <ons-button modifier="large--cta" class="login-button" ng-click="ctrl.cargarUsuariosBeneficiarios(false)">Donar a un usuario</ons-button>
+            </div>
+        </ons-page>
+    </ons-template>
 
-<!-- REALIZAR DONACIÓN - FUNDACION-->
-<ons-template id="realizar-donacion.html">
-<ons-page>
-<ons-toolbar>
-<div class="left">
-    <ons-back-button>Atrás</ons-back-button>
-</div>
-<div class="center">
-    Donar a la fundación
-</div>
-<div class="right">
-    <ons-toolbar-button ng-click="ctrl.cerrarSesion()">Cerrar</ons-toolbar-button>
-</div>
-</ons-toolbar>
+    <!-- REALIZAR DONACIÓN - FUNDACION-->
+    <ons-template id="realizar-donacion.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Atrás</ons-back-button>
+                </div>
+                <div class="center">
+                    Donar a la fundación
+                </div>
+                <div class="right">
+                    <ons-toolbar-button ng-click="ctrl.cerrarSesion()">Cerrar</ons-toolbar-button>
+                </div>
+            </ons-toolbar>
 
-<div class="login-form">
-    <select ng-model="ctrl.d_f_tipo_discapacidad">
-      <option value="" disabled selected>- Seleccione -</option>
-      <option value="Visual">Visual</option>
-      <option value="Auditiva">Auditiva</option>
-      <option value="Automotriz">Automotriz</option>
-      <option value="Otra">Otra</option>
-  </select>
-  <br>
-    <textarea class="textarea" ng-model="ctrl.d_f_implemento" rows="3" placeholder="Implemento"></textarea>
-    <br>
-    <select ng-model="ctrl.d_f_estado">
-      <option value="" disabled selected>- Seleccione estado -</option>
-      <option value="Excelente">Excelente</option>
-      <option value="Bueno">Bueno</option>
-  </select>
-  <br>
-  <br>
-  <ons-button modifier="large" class="login-button" ng-click="ctrl.agregarDonacionFundacion()">Donar</ons-button>
-</div>
-</ons-page>
-</ons-template>
+            <div class="login-form">
+                <select ng-model="ctrl.d_f_tipo_discapacidad">
+                    <option value="" disabled selected>- Seleccione -</option>
+                    <option value="Visual">Visual</option>
+                    <option value="Auditiva">Auditiva</option>
+                    <option value="Motriz">Motriz</option>
+                    <option value="Otra">Otra</option>
+                </select>
+                <br>
+                <textarea class="textarea" ng-model="ctrl.d_f_implemento" rows="3" placeholder="Implemento"></textarea>
+                <br>
+                <select ng-model="ctrl.d_f_estado">
+                    <option value="" disabled selected>- Seleccione estado -</option>
+                    <option value="Excelente">Excelente</option>
+                    <option value="Bueno">Bueno</option>
+                </select>
+                <br>
+                <img ng-src="{{ctrl.img_d_fundacion}}" width="100%">
+                <button class="button button--large" ng-click="ctrl.capturarFotoFundacion()">Tomar foto</button>
+                <br>
+                <br>
+                <ons-button modifier="large" class="login-button" ng-click="ctrl.agregarDonacionFundacion()">Donar</ons-button>
+            </div>
+        </ons-page>
+    </ons-template>
 
-<!-- REALIZAR DONACIÓN - USUARIO -->
-<ons-template id="realizar-donacion-usuario.html">
-<ons-page>
-<ons-toolbar>
-<div class="left">
-    <ons-back-button>Atrás</ons-back-button>
-</div>
-<div class="center">
-    Donar a usuario
-</div>
-<div class="right">
-    <ons-toolbar-button ng-click="ctrl.cerrarSesion()">Cerrar</ons-toolbar-button>
-</div>
-</ons-toolbar>
+    <!-- REALIZAR DONACIÓN - USUARIO -->
+    <ons-template id="realizar-donacion-usuario.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Atrás</ons-back-button>
+                </div>
+                <div class="center">
+                    Donar a usuario
+                </div>
+                <div class="right">
+                    <ons-toolbar-button ng-click="ctrl.cerrarSesion()">Cerrar</ons-toolbar-button>
+                </div>
+            </ons-toolbar>
 
-<div class="login-form">
-    <select ng-model="ctrl.d_u_tipo_discapacidad">
-      <option value="" disabled selected>- Seleccione -</option>
-      <option value="Visual">Visual</option>
-      <option value="Auditiva">Auditiva</option>
-      <option value="Automotriz">Automotriz</option>
-      <option value="Otra">Otra</option>
-  </select>
-  <br>
-    <select ng-model="ctrl.d_u_usuario">
-      <option value="" disabled selected>- Seleccione Usuario -</option>
-      <option ng-repeat="option in ctrl.usuariosBeneficiarios" value="{{option.id}}">{{option.nombre}}</option>
-  </select>
-  <br>
-  <textarea class="textarea" ng-model="ctrl.d_u_implemento" rows="3" placeholder="Implemento"></textarea>
-  <br>
-  <select ng-model="ctrl.d_u_estado">
-      <option value="" disabled selected>- Seleccione estado -</option>
-      <option value="Excelente">Excelente</option>
-      <option value="Bueno">Bueno</option>
-  </select>
-  <br>
-  <br>
-  <ons-button modifier="large" class="login-button" ng-click="ctrl.agregarDonacionUsuario()">Donar</ons-button>
-</div>
-</ons-page>
-</ons-template>
+            <div class="login-form">
+                <select ng-model="ctrl.d_u_tipo_discapacidad" ng-change="ctrl.cargarUsuariosConDiscapacidad()">
+                    <option value="" disabled selected>- Seleccione -</option>
+                    <option value="Visual">Visual</option>
+                    <option value="Auditiva">Auditiva</option>
+                    <option value="Motriz">Motriz</option>
+                    <option value="Otra">Otra</option>
+                </select>
+                <br>
+                <select ng-model="ctrl.d_u_usuario">
+                    <option value="" disabled selected>- Seleccione Usuario -</option>
+                    <option ng-repeat="option in ctrl.usuariosBeneficiariosDiscapacidad" value="{{option.id}}">{{option.nombre}} - {{option.implemento}}</option>
+                </select>
+                <br>
+                <textarea ng-hide="true" class="textarea" ng-model="ctrl.d_u_implemento" rows="3" placeholder="Implemento" readonly="true"></textarea>
+                <br>
+                <select ng-model="ctrl.d_u_estado">
+                    <option value="" disabled selected>- Seleccione estado -</option>
+                    <option value="Excelente">Excelente</option>
+                    <option value="Bueno">Bueno</option>
+                </select>
+                <br>
+                <img ng-src="{{ctrl.img_d_usuario}}" width="100%">
+                <button class="button button--large" ng-click="ctrl.capturarFotoUsuario()">Tomar foto</button>
+                <br>
+                <ons-button modifier="large" class="login-button" ng-click="ctrl.agregarDonacionUsuario()">Donar</ons-button>
+            </div>
+        </ons-page>
+    </ons-template>
 
-<!-- QUIENES SOMOS -->
-<ons-template id="quienes-somos.html">
-<ons-page>
-<ons-toolbar>
-<div class="left">
-    <ons-back-button>Atrás</ons-back-button>
-</div>
-<div class="center">
- ¿ Quienes somos ?
-</div>
-<div class="right">
-    <ons-toolbar-button ng-click="ctrl.cerrarSesion()">Cerrar</ons-toolbar-button>
-</div>
-</ons-toolbar>
+    <!-- QUIENES SOMOS -->
+    <ons-template id="quienes-somos.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Atrás</ons-back-button>
+                </div>
+                <div class="center">
+                    ¿ Quienes somos ?
+                </div>
+                <div class="right">
+                    <ons-toolbar-button ng-click="ctrl.cerrarSesion()">Cerrar</ons-toolbar-button>
+                </div>
+            </ons-toolbar>
 
-<div class="login-form">
-    <h2>¿ Quienes somos ?</h2>
-    <p style="text-align: justify;">
-        Nosotros, la fundacion "Un abrazo por los discapacitados" somos una entidad sin animo de lucro que trabajamos por el bienestar de las personas discapacitadas de la ciudad de armenia.
-        La fundacion "Un abrazo por los discapacitados" se encarga de los procesos de donacion de herramientas fisicas, para las personas discapacitadas de escasos recursos.
-    </p>
-    <h2>¿ Como donar ?</h2>
-    <p style="text-align: justify;">
-        La persona que quiera donar una herramienta (Silla de ruedas, muletas, caminadores, cuellos ortopedicos, protesis, cargadores, etc) para una persona discapacitada tiene que registrarse en la aplicacion +Donantes -Limitaciones a traves de un Usuario y Contraseña.
-        <br>
-        En la aplicacion +Donantes -Limitaciones se tienen dos opciones para donar.
-        <br>
-        1-Las herramientas se pueden donar directamente a una persona que los necesite, la lista de personas en espera de "Donantes" que requieren de estas herramientas se pueden observar al momento de iniciar sesion.
-        <br>
-        2- Las herramientas tambien se pueden donar directamente a la fundacion "Un abrazo por los discapacitados" y ya la fundacion se encarga de donarla a una persona que ellos consideren que la necesita.
+            <div class="login-form">
+                <h2>¿ Quienes somos ?</h2>
+                <p style="text-align: justify;">
+                    Nosotros, la fundacion "Un abrazo por los discapacitados" somos una entidad sin animo de lucro que trabajamos por el bienestar de las personas discapacitadas de la ciudad de armenia. La fundacion "Un abrazo por los discapacitados" se encarga de los procesos de donacion de herramientas fisicas, para las personas discapacitadas de escasos recursos.
+                </p>
+                <h2>¿ Como donar ?</h2>
+                <p style="text-align: justify;">
+                    La persona que quiera donar una herramienta (Silla de ruedas, muletas, caminadores, cuellos ortopedicos, protesis, cargadores, etc) para una persona discapacitada tiene que registrarse en la aplicacion +Donantes -Limitaciones a traves de un Usuario y Contraseña.
+                    <br> En la aplicacion +Donantes -Limitaciones se tienen dos opciones para donar.
+                    <br> 1-Las herramientas se pueden donar directamente a una persona que los necesite, la lista de personas en espera de "Donantes" que requieren de estas herramientas se pueden observar al momento de iniciar sesion.
+                    <br> 2- Las herramientas tambien se pueden donar directamente a la fundacion "Un abrazo por los discapacitados" y ya la fundacion se encarga de donarla a una persona que ellos consideren que la necesita.
 
-    </p>
-</div>
-</ons-page>
-</ons-template>
+                </p>
+            </div>
+        </ons-page>
+    </ons-template>
 
-<!-- REGISTRO DONANTE -->
-<ons-template id="registro-donante.html">
-<ons-page>
-<ons-toolbar>
-<div class="left">
-    <ons-back-button>Atrás</ons-back-button>
-</div>
-<div class="center">
-    Registrar Donante
-</div>
-<div class="right">
-    <ons-toolbar-button ng-click="ctrl.cerrarSesion()">Cerrar</ons-toolbar-button>
-</div>
-</ons-toolbar>
-<div class="login-form">
-    <input type="text" ng-model="ctrl.r_d_usuario" class="text-input--underbar" placeholder="Usuario" value="">
-    <input type="text" ng-model="ctrl.r_d_password" class="text-input--underbar" placeholder="Contraseña" value="">
-    <hr>
-    <input type="text" ng-model="ctrl.r_d_nombres" class="text-input--underbar" placeholder="Nombre" value="">
-    <input type="text" ng-model="ctrl.r_d_apellidos" class="text-input--underbar" placeholder="Apellidos" value="">
-    <input type="text" ng-model="ctrl.r_d_documento" class="text-input--underbar" placeholder="Documento" value="">
-    <input type="text" ng-model="ctrl.r_d_direccion" class="text-input--underbar" placeholder="Dirección" value="">
-    <input type="text" ng-model="ctrl.r_d_telefono" class="text-input--underbar" placeholder="Teléfono" value="">
-    <input type="text" ng-model="ctrl.r_d_correo" class="text-input--underbar" placeholder="Correo" value="">
+    <!-- REGISTRO DONANTE -->
+    <ons-template id="registro-donante.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Atrás</ons-back-button>
+                </div>
+                <div class="center">
+                    Registrar Donante
+                </div>
+                <div class="right">
+                    <ons-toolbar-button ng-click="ctrl.cerrarSesion()">Cerrar</ons-toolbar-button>
+                </div>
+            </ons-toolbar>
+            <div class="login-form">
+                <input type="text" ng-model="ctrl.r_d_usuario" class="text-input--underbar" placeholder="Usuario" value="">
+                <input type="text" ng-model="ctrl.r_d_password" class="text-input--underbar" placeholder="Contraseña" value="">
+                <hr>
+                <input type="text" ng-model="ctrl.r_d_nombres" class="text-input--underbar" placeholder="Nombre" value="">
+                <input type="text" ng-model="ctrl.r_d_apellidos" class="text-input--underbar" placeholder="Apellidos" value="">
+                <input type="text" ng-model="ctrl.r_d_documento" class="text-input--underbar" placeholder="Documento" value="">
+                <input type="text" ng-model="ctrl.r_d_direccion" class="text-input--underbar" placeholder="Dirección" value="">
+                <input type="text" ng-model="ctrl.r_d_telefono" class="text-input--underbar" placeholder="Teléfono" value="">
+                <input type="text" ng-model="ctrl.r_d_correo" class="text-input--underbar" placeholder="Correo" value="">
 
-    <br>
-    <ons-button modifier="large" class="login-button" ng-click="ctrl.agregarDonante()">Registrarme !</ons-button>
-</div>
-</ons-page>
-</ons-template>
+                <br>
+                <ons-button modifier="large" class="login-button" ng-click="ctrl.agregarDonante()">Registrarme !</ons-button>
+            </div>
+        </ons-page>
+    </ons-template>
 
-<!-- REGISTRO BENEFICIARIO -->
-<ons-template id="registro-beneficiario.html">
-<ons-page>
-<ons-toolbar>
-<div class="left">
-    <ons-back-button>Atrás</ons-back-button>
-</div>
-<div class="center">
-    Registrar Beneficiario
-</div>
-<div class="right">
-    <ons-toolbar-button ng-click="ctrl.cerrarSesion()">Cerrar</ons-toolbar-button>
-</div>
-</ons-toolbar>
+    <!-- REGISTRO BENEFICIARIO -->
+    <ons-template id="registro-beneficiario.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Atrás</ons-back-button>
+                </div>
+                <div class="center">
+                    Registrar Beneficiario
+                </div>
+                <div class="right">
+                    <ons-toolbar-button ng-click="ctrl.cerrarSesion()">Cerrar</ons-toolbar-button>
+                </div>
+            </ons-toolbar>
 
-<div class="login-form">
-    <input type="text" ng-model="ctrl.r_b_nombres" class="text-input--underbar" placeholder="Nombre" value="">
-    <input type="text" ng-model="ctrl.r_b_apellidos" class="text-input--underbar" placeholder="Apellidos" value="">
-    <input type="text" ng-model="ctrl.r_b_documento" class="text-input--underbar" placeholder="Documento" value="">
-    <input type="text" ng-model="ctrl.r_b_implemento" class="text-input--underbar" placeholder="Implemento" value="">
-    <input type="text" ng-model="ctrl.r_b_telefono" class="text-input--underbar" placeholder="Teléfono" value="">
-    <input type="text" ng-model="ctrl.r_b_correo" class="text-input--underbar" placeholder="Correo" value="">
-    <input type="text" ng-model="ctrl.r_b_direccion" class="text-input--underbar" placeholder="Dirección" value="">
-    <br>
-    <select ng-model="ctrl.r_b_tipo_discapacidad">
-      <option value="" disabled selected>- Seleccione -</option>
-      <option value="Visual">Visual</option>
-      <option value="Auditiva">Auditiva</option>
-      <option value="Automotriz">Automotriz</option>
-      <option value="Otra">Otra</option>
-  </select>
-    <br>
-    <ons-button modifier="large" class="login-button" ng-click="ctrl.agregarBeneficiario()">Agregar</ons-button>
-</div>
-</ons-page>
-</ons-template>
+            <div class="login-form">
+                <input type="text" ng-model="ctrl.r_b_nombres" class="text-input--underbar" placeholder="Nombre" value="">
+                <input type="text" ng-model="ctrl.r_b_apellidos" class="text-input--underbar" placeholder="Apellidos" value="">
+                <input type="text" ng-model="ctrl.r_b_documento" class="text-input--underbar" placeholder="Documento" value="">
+                <input type="text" ng-model="ctrl.r_b_implemento" class="text-input--underbar" placeholder="Implemento" value="">
+                <input type="text" ng-model="ctrl.r_b_telefono" class="text-input--underbar" placeholder="Teléfono" value="">
+                <input type="text" ng-model="ctrl.r_b_correo" class="text-input--underbar" placeholder="Correo" value="">
+                <input type="text" ng-model="ctrl.r_b_direccion" class="text-input--underbar" placeholder="Dirección" value="">
+                <br>
+                <select ng-model="ctrl.r_b_tipo_discapacidad">
+                    <option value="" disabled selected>- Seleccione -</option>
+                    <option value="Visual">Visual</option>
+                    <option value="Auditiva">Auditiva</option>
+                    <option value="Motriz">Motriz</option>
+                    <option value="Otra">Otra</option>
+                </select>
+                <br>
+                <ons-button modifier="large" class="login-button" ng-click="ctrl.agregarBeneficiario()">Agregar</ons-button>
+            </div>
+        </ons-page>
+    </ons-template>
 
-<!-- DONACIONES POR REVISAR -->
-<ons-template id="donaciones-revisar.html">
-<ons-page>
-<ons-toolbar>
-<div class="left">
-    <ons-back-button>Atrás</ons-back-button>
-</div>
-<div class="center">
-    Donaciones por revisar
-</div>
-</ons-toolbar>
+    <!-- DONACIONES POR REVISAR -->
+    <ons-template id="donaciones-revisar.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Atrás</ons-back-button>
+                </div>
+                <div class="center">
+                    Donaciones por revisar
+                </div>
+            </ons-toolbar>
 
-<ons-list class="plan-list">
-<ons-list-item modifier="chevron" class="plan" ng-repeat="d in ctrl.donacionesRevisar" ng-click="ctrl.verDonacionFundacion($index)">
-<ons-row>
-<ons-col class="plan-right">
-<div class="plan-name"><p>Nombre Cliente: {{d.nombres}} {{d.apellidos}}</div>
-<div class="plan-name"><ons-icon icon="ion-checkmark-circled"></ons-icon>Implemento: {{d.implemento}}</p></div>
+            <ons-list class="plan-list">
+                <ons-list-item modifier="chevron" class="plan" ng-repeat="d in ctrl.donacionesRevisar" ng-click="ctrl.verDonacionFundacion($index)">
+                    <ons-row>
+                        <ons-col class="plan-right">
+                            <div class="plan-name">
+                                <p>Nombre Cliente: {{d.nombres}} {{d.apellidos}}</div>
+                            <div class="plan-name">
+                                <ons-icon icon="ion-checkmark-circled"></ons-icon>Implemento: {{d.implemento}}</p>
+                            </div>
 
-<div class="plan-info">
-    <div>
-        <ons-icon icon="ion-location"></ons-icon>Dirección: {{d.direccion}}
-    </div>
-</div>
-</ons-col>
-</ons-row>
-</ons-list-item>
-</ons-list>
-</ons-page>
-</ons-template>
+                            <div class="plan-name">
+                                <ons-icon icon="ion-location"></ons-icon>Dirección: {{d.direccion}}
+                            </div>
+                        </ons-col>
+                    </ons-row>
+                </ons-list-item>
+            </ons-list>
+        </ons-page>
+    </ons-template>
 
-<!-- DONACIONES DE FUNDACION -->
-<ons-template id="donaciones-fundacion.html">
-<ons-page>
-<ons-toolbar>
-<div class="left">
-    <ons-back-button>Atrás</ons-back-button>
-</div>
-<div class="center">
-    Donaciones fundación
-</div>
-</ons-toolbar>
+    <!-- DONACIONES DE FUNDACION -->
+    <ons-template id="donaciones-fundacion.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Atrás</ons-back-button>
+                </div>
+                <div class="center">
+                    Donaciones fundación
+                </div>
+            </ons-toolbar>
 
-<ons-list class="plan-list">
-<ons-list-item modifier="chevron" class="plan" ng-repeat="d in ctrl.donacionesMiFundacion" ng-click="">
-<ons-row>
-<ons-col class="plan-right">
-<div class="plan-name">Nombre donante: {{d.nombres}} {{d.apellidos}}</div>
+            <ons-list class="plan-list">
+                <ons-list-item modifier="chevron" class="plan" ng-repeat="d in ctrl.donacionesMiFundacion" ng-click="">
+                    <ons-row>
+                        <ons-col class="plan-right">
+                            <div class="plan-name">Nombre donante: {{d.nombres}} {{d.apellidos}}</div>
+                            <div class="plan-name">
+                                <ons-icon icon="ion-checkmark-circled"></ons-icon>Implemento: {{d.implemento}}
+                            </div>
+                        </ons-col>
+                    </ons-row>
+                </ons-list-item>
+            </ons-list>
+        </ons-page>
+    </ons-template>
 
-<div class="plan-info">
-    <div>
-        <ons-icon icon="ion-checkmark-circled"></ons-icon>Implemento: {{d.implemento}}
-    </div>
-    <div>
-        <ons-icon icon="ion-key"></ons-icon>ID: {{d.id}}
-    </div>
-</div>
-</ons-col>
-</ons-row>
-</ons-list-item>
-</ons-list>
-</ons-page>
-</ons-template>
+    <!-- USUARIOS CON DONACIONES -->
+    <ons-template id="usuarios-con-donaciones.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Atrás</ons-back-button>
+                </div>
+                <div class="center">
+                    Usuarios beneficiarios
+                </div>
+            </ons-toolbar>
 
-<!-- USUARIOS CON DONACIONES -->
-<ons-template id="usuarios-con-donaciones.html">
-<ons-page>
-<ons-toolbar>
-<div class="left">
-    <ons-back-button>Atrás</ons-back-button>
-</div>
-<div class="center">
-    Usuarios con donaciones
-</div>
-</ons-toolbar>
+            <ons-list class="plan-list">
+                <ons-list-item modifier="chevron" class="plan" ng-repeat="a in ctrl.usuariosBeneficiarios" ng-click="ctrl.verDonacionesDelUsuario($index)">
+                    <ons-row>
+                        <ons-col class="plan-right">
+                            <div class="plan-name">Nombre Usuario {{a.nombre}}</div>
 
-<ons-list class="plan-list">
-<ons-list-item modifier="chevron" class="plan" ng-repeat="a in ctrl.usuariosBeneficiarios" ng-click="ctrl.verDonacionesDelUsuario($index)">
-<ons-row>
-<ons-col class="plan-right">
-<div class="plan-name">Nombre Usuario {{a.nombres}} {{a.apellidos}}</div>
+                            <div class="plan-name">
+                                <ons-icon icon="ion-location"></ons-icon>Dirección {{a.direccion}}
+                            </div>
+                            <div class="plan-name">
+                                <ons-icon icon="ion-ios-telephone"></ons-icon>Teléfono {{a.telefono}}
+                            </div>
 
-<div class="plan-info">
-    <div>
-        <ons-icon icon="ion-location"></ons-icon>Dirección {{a.direccion}}
-    </div>
-    <div>
-        <ons-icon icon="ion-ios-telephone"></ons-icon>Teléfono {{a.telefono}}
-    </div>
-</div>
-</ons-col>
-</ons-row>
-</ons-list-item>
-</ons-list>
-</ons-page>
-</ons-template>
+                        </ons-col>
+                    </ons-row>
+                </ons-list-item>
+            </ons-list>
+        </ons-page>
+    </ons-template>
 
-<!-- IMPLEMENTOS DONADOS AL USUARIO X -->
-<ons-template id="donaciones-de-usuario.html">
-<ons-page>
-<ons-toolbar>
-<div class="left">
-    <ons-back-button>Atrás</ons-back-button>
-</div>
-<div class="center">
-    Donaciones del usuario
-</div>
-</ons-toolbar>
+    <!-- IMPLEMENTOS DONADOS AL USUARIO X -->
+    <ons-template id="donaciones-de-usuario.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Atrás</ons-back-button>
+                </div>
+                <div class="center">
+                    Donaciones del usuario
+                </div>
+            </ons-toolbar>
 
-<ons-list class="plan-list">
-<ons-list-item modifier="chevron" class="plan" ng-repeat="du in ctrl.donacionesMiUsuario" ng-click="ctrl.verDonacionUsuario($index)">
-<ons-row>
-<ons-col class="plan-right">
-<div class="plan-name">Nombre Donante {{du.donante}}</div>
-<div class="plan-name">Nombre Implemento {{du.implemento}}</div>
+            <ons-list class="plan-list">
+                <ons-list-item modifier="chevron" class="plan" ng-repeat="du in ctrl.donacionesMiUsuario" ng-click="ctrl.verDonacionUsuario($index)">
+                    <ons-row>
+                        <ons-col class="plan-right">
+                            <div class="plan-name">Nombre Donante {{du.donante}}</div>
+                            <div class="plan-name">Nombre Implemento {{du.implemento}}</div>
+                            <div class="plan-name">
+                                <ons-icon icon="ion-medkit"></ons-icon>Estado: {{du.estado_implemento}}
+                            </div>
+                        </ons-col>
+                    </ons-row>
+                </ons-list-item>
+            </ons-list>
+        </ons-page>
+    </ons-template>
 
-<div class="plan-info">
-<div>
-    <ons-icon icon="ion-medkit"></ons-icon>Estado: {{$index}}
-</div>
-</div>
-</ons-col>
-</ons-row>
-</ons-list-item>
-</ons-list>
-</ons-page>
-</ons-template>
+    <!-- VER DONACION -->
+    <ons-template id="verDonacion.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Atrás</ons-back-button>
+                </div>
+                <div class="center">
+                    Donación
+                </div>
+            </ons-toolbar>
 
-<!-- VER DONACION -->
-<ons-template id="verDonacion.html">
-<ons-page>
-<ons-toolbar>
-<div class="left">
-    <ons-back-button>Atrás</ons-back-button>
-</div>
-<div class="center">
-    Donación
-</div>
-</ons-toolbar>
+            <div class="login-form">
+                <ons-row class="profile-wrapper">
 
-<div class="login-form">
-    <ons-row class="profile-wrapper">
+                    <ons-col>
+                        <div class="profile-name"><b>Nombre:</b> {{ctrl.verDonacionNombre}}</div>
+                        <br>
+                        <div class="profile-name"><b>Implemento:</b> {{ctrl.verDonacionImplemento}}</div>
+                    </ons-col>
 
-    <ons-col>
-    <div class="profile-name"><b>Nombre:</b> {{ctrl.verDonacionNombre}}</div>
-    <br>
-    <div class="profile-name"><b>Implemento:</b> {{ctrl.verDonacionImplemento}}</div>
-</ons-col>
+                </ons-row>
+                <ons-row>
+                    <img ng-src="{{ctrl.verDonacionIMG}}" width="50%" height="250px" style="margin: 10px auto;">
+                </ons-row>
+                <ons-row>
+                    <br>
+                </ons-row>
+                <ons-row>
+                    <ons-button modifier="large" class="login-button" ng-click="ctrl.aceptarDonacion()">Aceptar donación</ons-button>
+                    <ons-row>
+                        <br>
+                    </ons-row>
+                    <ons-row>
+                        <ons-button modifier="large--cta" class="login-button" ng-click="ctrl.iniciarRechazarDonacion()">Rechazar donación</ons-button>
+                    </ons-row>
+                </ons-row>
+            </div>
+        </ons-page>
+    </ons-template>
 
-</ons-row>
-<ons-row>
-<ons-button modifier="large" class="login-button" ng-click="ctrl.aceptarDonacion()">Aceptar donación</ons-button>
-</ons-row>
-</div>
-</ons-page>
-</ons-template>
+    <ons-template id="rechazarDonacion.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Atrás</ons-back-button>
+                </div>
+                <div class="center">
+                    Rechazar donación
+                </div>
+            </ons-toolbar>
+
+            <div class="login-form">
+                <textarea class="textarea" ng-model="ctrl.motivoRechazo" rows="3" placeholder="Implemento">
+                </textarea>
+
+                <br>
+                <ons-button modifier="large" class="login-button" ng-click="ctrl.rechazarDonacion()">Rechazar</ons-button>
+            </div>
+        </ons-page>
+    </ons-template>
+
+    <!-- IMPLEMENTOS RECHAZADOS -->
+    <ons-template id="donaciones-rechazadas.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Atrás</ons-back-button>
+                </div>
+                <div class="center">
+                    Donaciones rechazadas
+                </div>
+            </ons-toolbar>
+
+            <ons-list class="plan-list">
+                <ons-list-item modifier="chevron" class="plan" ng-repeat="du in ctrl.donacionesRechazadas">
+                    <ons-row>
+                        <ons-col class="plan-right">
+                            <div class="plan-name">Nombre Donante: {{du.nombre_donante}}</div>
+                            <div class="plan-name">Implemento: {{du.implemento}}</div>
+                            <div class="plan-name">Observaciones: {{du.observaciones}}</div>
+                        </ons-col>
+                    </ons-row>
+                </ons-list-item>
+            </ons-list>
+        </ons-page>
+    </ons-template>
+
+    <ons-template id="donaciones-en-seguimiento.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Atrás</ons-back-button>
+                </div>
+                <div class="center">
+                    Donaciones en seguimiento
+                </div>
+            </ons-toolbar>
+
+            <ons-list class="plan-list">
+                <ons-list-item modifier="chevron" class="plan" ng-repeat="du in ctrl.donacionesEnSeguimiento" ng-click="ctrl.verDecisionDonacion(du.id)">
+                    <ons-row>
+                        <ons-col class="plan-right">
+                            <div class="plan-name">Nombre Donante: {{du.donante}}</div>
+                            <div class="plan-name">Nombre Beneficiario: {{du.beneficiario}}</div>
+                            <div class="plan-name">Implemento: {{du.implemento}}</div>
+                        </ons-col>
+                    </ons-row>
+                </ons-list-item>
+            </ons-list>
+        </ons-page>
+    </ons-template>
+
+    <ons-template id="decidir-donacion.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Atrás</ons-back-button>
+                </div>
+                <div class="center">
+                    Que desea hacer ?
+                </div>
+            </ons-toolbar>
+
+            <div class="login-form">
+                <div class="settings-header">Opciones</div>
+                <br>
+
+                <ons-button modifier="large" class="login-button" ng-click="myNavigator.pushPage('realizar-seguimiento.html', { animation : 'slide' } );">Realizar seguimiento</ons-button>
+                <br>
+                <ons-button modifier="large--cta" class="login-button" ng-click="ctrl.verSeguimientos()">Ver seguimientos</ons-button>
+            </div>
+        </ons-page>
+    </ons-template>
+
+    <ons-template id="realizar-seguimiento.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Atrás</ons-back-button>
+                </div>
+                <div class="center">
+                    Hacer seguimiento
+                </div>
+            </ons-toolbar>
+
+            <div class="login-form">
+                <br>
+                <textarea class="textarea" rows="3" ng-model="ctrl.descripcionSeguimiento"></textarea>
+                <br>
+                <ons-button modifier="large" class="login-button" ng-click="ctrl.guardarSeguimiento()">Aceptar</ons-button>
+                <br>
+            </div>
+        </ons-page>
+    </ons-template>
+
+    <ons-template id="seguimientos.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Atrás</ons-back-button>
+                </div>
+                <div class="center">
+                    Seguimientos
+                </div>
+            </ons-toolbar>
+
+            <ons-list class="plan-list">
+                <ons-list-item modifier="chevron" class="plan" ng-repeat="du in ctrl.seguimientos">
+                    <ons-row>
+                        <ons-col class="plan-right">
+                            <div class="plan-name"><b>Descripción:</b> {{du.descripcion}}</div>
+                            <div class="plan-name"><b>Fecha y hora:</b> {{du.created}}</div>
+                            
+                        </ons-col>
+                    </ons-row>
+                </ons-list-item>
+            </ons-list>
+        </ons-page>
+    </ons-template>
 </body>
+
 </html>
