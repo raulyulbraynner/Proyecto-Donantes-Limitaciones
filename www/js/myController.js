@@ -4,12 +4,9 @@ angular.module('myApp', ['onsen'])
 
         ctrl.hostApp = 'http://raul-pc:82/RaulDonaciones/consultas.php?callback=JSON_CALLBACK';
         ctrl.hostImg = 'http://raul-pc:82/';
-
-        // Variables internas de sesión.
         ctrl.G_idUsuario = '';
         ctrl.G_nombreUsuario = '';
         ctrl.G_tipoUsuario = '';
-
         // Listas
         ctrl.donacionesRevisar = [];
         ctrl.usuariosBeneficiarios = [];
@@ -19,18 +16,15 @@ angular.module('myApp', ['onsen'])
         ctrl.donacionesRechazadas = [];
         ctrl.donacionesEnSeguimiento = [];
         ctrl.seguimientos = [];
-
         // Variables donación a fundación.
         // d_f = donación fundación.
         ctrl.d_f_implemento = '';
         ctrl.d_f_estado = '';
-
         // Variables donación a usuario.
         // d_u = donación usuario.
         ctrl.d_u_idUsuario = '';
         ctrl.d_u_implemento = '';
         ctrl.d_u_estado = '';
-
         // Variables registrar donante.
         ctrl.r_d_usuario = '';
         ctrl.r_d_password = '';
@@ -39,12 +33,10 @@ angular.module('myApp', ['onsen'])
         ctrl.r_d_documento = '';
         ctrl.r_d_telefono = '';
         ctrl.r_d_correo = '';
-
         // Ver donación
         ctrl.verDonacionNombre = '';
         ctrl.verDonacionImplemento = '';
         ctrl.verDonacionID = '';
-
         // Ver seguimiento
         ctrl.idDonacionSeguimiento = '';
 
@@ -53,7 +45,6 @@ angular.module('myApp', ['onsen'])
                 animation: 'slide'
             });
         };
-
         // Camara - Donación fundación.
         ctrl.capturarFotoFundacion = function() {
             navigator.camera.getPicture(ctrl.onPhotoDataSuccessFundacion, ctrl.onFail, {
@@ -61,14 +52,12 @@ angular.module('myApp', ['onsen'])
                 destinationType: destinationType.DATA_URL
             });
         };
-
         ctrl.onPhotoDataSuccessFundacion = function(imageData) {
             console.log(imageData);
             $scope.$apply(function() {
                 ctrl.img_d_fundacion = "data:image/jpeg;base64," + imageData;
             });
         };
-
         // Camara - Donación Usuario.
         ctrl.capturarFotoUsuario = function() {
             navigator.camera.getPicture(ctrl.onPhotoDataSuccessUsuario, ctrl.onFail, {
@@ -103,7 +92,6 @@ angular.module('myApp', ['onsen'])
                 usuario: ctrl.usuario,
                 password: ctrl.password
             };
-
             $http.jsonp(ctrl.hostApp + '&consulta=iniciarSesion' + "&data=" + JSON.stringify(data))
                 .success(function(data) {
 
@@ -136,7 +124,6 @@ angular.module('myApp', ['onsen'])
                 ctrl.darMensaje('Por favor registre todos los datos del formulario.');
                 return;
             }
-
             var data = {
                 usuario: ctrl.r_d_usuario,
                 password: ctrl.r_d_password,
@@ -148,7 +135,6 @@ angular.module('myApp', ['onsen'])
                 correo: ctrl.r_d_correo,
                 direccion: ctrl.r_d_direccion
             };
-
             $http.jsonp(ctrl.hostApp + '&consulta=agregarDonante' + "&data=" + JSON.stringify(data))
                 .success(function(data) {
                     console.log(JSON.stringify(data));
@@ -163,7 +149,6 @@ angular.module('myApp', ['onsen'])
                         ctrl.r_d_telefono = '';
                         ctrl.r_d_correo = '';
                         ctrl.r_d_direccion = '';
-
                         $scope.myNavigator.popPage();
                         ctrl.darMensaje('Se ha registrado correctamente como donante.');
                     } else {
@@ -178,7 +163,6 @@ angular.module('myApp', ['onsen'])
                 ctrl.darMensaje('Por favor registre todos los datos del formulario.');
                 return;
             }
-
             var data = {
                 nombres: ctrl.r_b_nombres,
                 apellidos: ctrl.r_b_apellidos,
@@ -189,7 +173,6 @@ angular.module('myApp', ['onsen'])
                 direccion: ctrl.r_b_direccion,
                 tipo_discapacidad: ctrl.r_b_tipo_discapacidad
             };
-
             $http.jsonp(ctrl.hostApp + '&consulta=agregarBeneficiario' + "&data=" + JSON.stringify(data))
                 .success(function(data) {
                     console.log(JSON.stringify(data));
@@ -203,7 +186,6 @@ angular.module('myApp', ['onsen'])
                         ctrl.r_b_correo = '';
                         ctrl.r_b_direccion = '';
                         ctrl.r_b_tipo_discapacidad = '';
-
                         $scope.myNavigator.popPage();
                         ctrl.darMensaje('Se ha registrado correctamente el beneficiario.');
                     } else {
@@ -333,7 +315,6 @@ angular.module('myApp', ['onsen'])
                         var data = {
                             id: ctrl.verDonacionID
                         };
-
                         $http.jsonp(ctrl.hostApp + '&consulta=aceptarDonacion' + "&data=" + JSON.stringify(data))
                             .success(function(data) {
                                 console.log(JSON.stringify(data));
@@ -385,7 +366,6 @@ angular.module('myApp', ['onsen'])
                             id: ctrl.verDonacionID,
                             motivo: ctrl.motivoRechazo
                         };
-
                         $http.jsonp(ctrl.hostApp + '&consulta=rechazarDonacion' + "&data=" + JSON.stringify(data))
                             .success(function(data) {
                                 console.log(JSON.stringify(data));
@@ -419,7 +399,6 @@ angular.module('myApp', ['onsen'])
                         ctrl.verDonacionImplemento = ctrl.donacionesMiUsuario[id].implemento;
                         ctrl.verDonacionID = ctrl.donacionesMiUsuario[id].id;
                         ctrl.verDonacionIMG = ctrl.hostImg + ctrl.donacionesMiUsuario[id].url_foto;
-
                         $scope.myNavigator.pushPage('verDonacion.html', {
                             animation: 'slide'
                         });
@@ -435,49 +414,19 @@ angular.module('myApp', ['onsen'])
                 ctrl.darMensaje('Por favor registre todos los datos del formulario.');
                 return;
             }
-
-            //
             var options = new FileUploadOptions();
             options.fileKey = "file";
             options.fileName = "foto";
             options.mimeType = "image/jpeg";
-
             var params = new Object();
             params.implemento = ctrl.d_f_implemento;
             params.estado = ctrl.d_f_estado;
             params.idBeneficiario = ctrl.d_u_usuario;
             params.idDonante = ctrl.G_idUsuario;
             params.tipo_discapacidad = ctrl.d_f_tipo_discapacidad;
-
             options.params = params;
-
             var ft = new FileTransfer();
             ft.upload(ctrl.img_d_fundacion, ctrl.hostApp + '&consulta=agregarDonacionFundacion', ctrl.winDonacionFundacion, ctrl.onFail, options);
-            //
-            /*
-            var data = {
-                implemento: ctrl.d_f_implemento,
-                estado: ctrl.d_f_estado,
-                tipo_discapacidad: ctrl.d_f_tipo_discapacidad,
-                idDonante: ctrl.G_idUsuario
-            };
-
-            $http.jsonp(ctrl.hostApp + '&consulta=agregarDonacionFundacion' + "&data=" + JSON.stringify(data))
-            .success(function(data) {
-                console.log(JSON.stringify(data));
-                console.log(data);
-                if (data.resultado === "1") {
-                    ctrl.d_f_implemento = '';
-                    ctrl.d_f_estado = '';
-                    ctrl.d_f_tipo_discapacidad = '';
-
-                    $scope.myNavigator.popPage();
-                    ctrl.darMensaje('Gracias por su donación !. Esta será reclamada de Lunes a Viernes en horas de la tarde.');
-                } else {
-                    ctrl.darMensaje('Ha ocurrido un error. Por favor revise los datos.');
-                }
-            });
-            */
         };
 
         ctrl.winDonacionFundacion = function() {
@@ -485,10 +434,8 @@ angular.module('myApp', ['onsen'])
             ctrl.d_f_estado = '';
             ctrl.d_f_tipo_discapacidad = '';
             ctrl.img_d_fundacion = '';
-
             $scope.myNavigator.popPage();
             ctrl.darMensaje('Gracias por su donación !. Esta será reclamada de Lunes a Viernes en horas de la tarde.');
-
         };
 
         ctrl.agregarDonacionUsuario = function() {
@@ -501,44 +448,15 @@ angular.module('myApp', ['onsen'])
             options.fileKey = "file";
             options.fileName = "foto";
             options.mimeType = "image/jpeg";
-
             var params = new Object();
             params.implemento = "";
             params.estado = ctrl.d_u_estado;
             params.idBeneficiario = ctrl.d_u_usuario;
             params.idDonante = ctrl.G_idUsuario;
             params.tipo_discapacidad = ctrl.d_u_tipo_discapacidad;
-
             options.params = params;
-
             var ft = new FileTransfer();
             ft.upload(ctrl.img_d_usuario, ctrl.hostApp + '&consulta=agregarDonacionUsuario', ctrl.winDonacionUsuario, ctrl.onFail, options);
-            //
-            /*
-                var data = {
-                    implemento: '',
-                    estado: ctrl.d_u_estado,
-                    idBeneficiario: ctrl.d_u_usuario,
-                    idDonante: ctrl.G_idUsuario,
-                    tipo_discapacidad: ctrl.d_u_tipo_discapacidad
-                };
-
-                $http.jsonp(ctrl.hostApp + '&consulta=agregarDonacionUsuario' + "&data=" + JSON.stringify(data))
-                .success(function(data) {
-                    console.log(JSON.stringify(data));
-                    console.log(data);
-                    if (data.resultado === "1") {
-                        ctrl.d_u_implemento = '';
-                        ctrl.d_u_estado = '';
-                        ctrl.d_u_usuario = '';
-                        ctrl.d_u_tipo_discapacidad = '';
-
-                        $scope.myNavigator.popPage();
-                        ctrl.darMensaje('Gracias por su donación !. Esta será reclamada de Lunes a Viernes en horas de la tarde..');
-                    } else {
-                        ctrl.darMensaje('Ha ocurrido un error. Por favor revise los datos.');
-                    }
-                });*/
         };
 
         ctrl.winDonacionUsuario = function() {
@@ -547,7 +465,6 @@ angular.module('myApp', ['onsen'])
             ctrl.d_u_usuario = '';
             ctrl.d_u_tipo_discapacidad = '';
             ctrl.img_d_usuario = '';
-
             $scope.myNavigator.popPage();
             ctrl.darMensaje('Gracias por su donación !. Esta será reclamada de Lunes a Viernes en horas de la tarde..');
         };
@@ -561,7 +478,6 @@ angular.module('myApp', ['onsen'])
                     console.log(data);
                     if (data.resultado === "1") {
                         ctrl.donacionesMiFundacion = data.query;
-
                         $scope.myNavigator.pushPage('donaciones-fundacion.html', {
                             animation: 'slide'
                         });
@@ -598,9 +514,7 @@ angular.module('myApp', ['onsen'])
             ctrl.usuariosBeneficiariosDiscapacidad = [];
             var data = {
                 tipo_discapacidad: ctrl.d_u_tipo_discapacidad
-
             };
-
             $http.jsonp(ctrl.hostApp + '&consulta=usuariosBeneficiariosDiscapacidad' + '&data=' + JSON.stringify(data))
                 .success(function(data) {
                     console.log(JSON.stringify(data));
@@ -621,7 +535,6 @@ angular.module('myApp', ['onsen'])
                     console.log(data);
                     if (data.resultado === "1") {
                         ctrl.donacionesRevisar = data.query;
-
                         $scope.myNavigator.pushPage('donaciones-revisar.html', {
                             animation: 'slide'
                         });
@@ -645,7 +558,6 @@ angular.module('myApp', ['onsen'])
                         var data = {
                             idUsuario: ctrl.usuariosBeneficiarios[id].id
                         };
-
                         $http.jsonp(ctrl.hostApp + '&consulta=donacionesRealizadasUsuario' + '&data=' + JSON.stringify(data))
                             .success(function(data) {
                                 console.log(JSON.stringify(data));
