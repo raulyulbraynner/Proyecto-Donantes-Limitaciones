@@ -98,7 +98,7 @@
             </ons-toolbar>
 
             <div class="login-form">
-                <div class="settings-header">Opciones</div>
+                <div class="settings-header">Opciones de Administrador</div>
                 <br>
 
                 <ons-button modifier="large" class="login-button" ng-click="myNavigator.pushPage('registro-beneficiario.html', { animation : 'slide' } );">Registrar beneficiario</ons-button>
@@ -133,7 +133,7 @@
             </ons-toolbar>
 
             <div class="login-form">
-                <div class="settings-header">Opciones</div>
+                <div class="settings-header">Opciones para realizar una donacion</div>
                 <br>
 
                 <ons-button modifier="large" class="login-button" ng-click="myNavigator.pushPage('realizar-donacion.html', { animation : 'slide' } );">Donar a la fundación</ons-button>
@@ -160,10 +160,10 @@
 
             <div class="login-form">
                 <select ng-model="ctrl.d_f_tipo_discapacidad">
-                    <option value="" disabled selected>- Seleccione -</option>
-                    <option value="Visual">Visual</option>
-                    <option value="Auditiva">Auditiva</option>
-                    <option value="Motriz">Motriz</option>
+                    <option value="" disabled selected>- Seleccione tipo de discapacidad -</option>
+                    <option value="Visual">Discapacidad Visual</option>
+                    <option value="Auditiva">Discapacidad Auditiva</option>
+                    <option value="Motriz">Discapacidad Motriz</option>
                     <option value="Otra">Otra</option>
                 </select>
                 <br>
@@ -201,10 +201,10 @@
 
             <div class="login-form">
                 <select ng-model="ctrl.d_u_tipo_discapacidad" ng-change="ctrl.cargarUsuariosConDiscapacidad()">
-                    <option value="" disabled selected>- Seleccione -</option>
-                    <option value="Visual">Visual</option>
-                    <option value="Auditiva">Auditiva</option>
-                    <option value="Motriz">Motriz</option>
+                    <option value="" disabled selected>- Seleccione tipo de discapacidad-</option>
+                    <option value="Visual">Discapacidad Visual</option>
+                    <option value="Auditiva">Discapacidad Auditiva</option>
+                    <option value="Motriz">Discapacidad Motriz</option>
                     <option value="Otra">Otra</option>
                 </select>
                 <br>
@@ -317,10 +317,10 @@
                 <input type="text" ng-model="ctrl.r_b_direccion" class="text-input--underbar" placeholder="Dirección" value="">
                 <br>
                 <select ng-model="ctrl.r_b_tipo_discapacidad">
-                    <option value="" disabled selected>- Seleccione -</option>
-                    <option value="Visual">Visual</option>
-                    <option value="Auditiva">Auditiva</option>
-                    <option value="Motriz">Motriz</option>
+                    <option value="" disabled selected>- Seleccione tipo de discapacidad-</option>
+                    <option value="Visual">Discapacidad Visual</option>
+                    <option value="Auditiva">Discapacidad Auditiva</option>
+                    <option value="Motriz">Discapacidad Motriz</option>
                     <option value="Otra">Otra</option>
                 </select>
                 <br>
